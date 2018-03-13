@@ -23,9 +23,18 @@ public class Person {
 	
 	void deposit(double x)
 	{
-		System.out.println("You have just deposited: " + x);
-		credit = credit + x;
-		System.out.println("current balance is: " + credit);
+		if (debet >= credit)
+		{
+			System.out.println("You have just deposited: " + x);
+			debet = debet - x;
+			System.out.print("Your current balance is: -" + debet);
+		}
+		else
+		{
+			System.out.println("You have just deposited: " + x);
+			credit = credit + x;
+			System.out.println("current balance is: " + credit);
+		}
 	}
 	
 	void creditCheck()
@@ -42,7 +51,10 @@ public class Person {
 	
 	void balancePrint()
 	{
-		System.out.println("Your account balance is: " + credit);
+		if (credit > 0)
+			System.out.println("Your account balance is: " + credit);
+		if (debet > 0)
+			System.out.println("Your account balance is: -" + debet);
 	}
 	
 }
